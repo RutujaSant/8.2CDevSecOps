@@ -1,52 +1,27 @@
 pipeline {
-
     agent any
 
-
-
     stages {
-
         stage('Build') {
-
             steps {
-
                 echo 'Running build...'
-
             }
-
         }
-
-
 
         stage('Test') {
-
             steps {
-
                 echo 'Running tests...'
-
                 bat 'echo "All tests passed." > test-results.log'
-
             }
-
         }
-
-
 
         stage('Security Scan') {
-
             steps {
-
                 echo 'Running security scan...'
-
                 bat 'echo "No issues found." > security-scan.log'
-
             }
-
         }
-
     }
-
-
 
     post {
         always {
@@ -66,6 +41,6 @@ pipeline {
                 to: 'rutujasant@gmail.com',
                 attachmentsPattern: 'console-log.txt'
             )
-        }
-    }
+        }
+    }
 }
